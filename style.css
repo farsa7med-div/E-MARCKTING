@@ -131,7 +131,7 @@ body{
   background-image: url(img/img--waved__gradient.svg);
   background-repeat: no-repeat;
   background-position-x: 100%;
-  transform: translateY(-65px);
+  transform: translateY(-69px);
   height: 100vh;
   overflow: hidden;
   }
