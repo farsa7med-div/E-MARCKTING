@@ -30,6 +30,7 @@ $(window).scroll(function () {
   }
 });
 // /* ! end pragres top web page*/
+
 // show back grund navbar on scroll
 window.onscroll = function () {
   var header = document.getElementById("navbar");
@@ -127,4 +128,64 @@ $.each( instance, function(key, value) {
       }
   }
   
+});
+
+
+
+
+
+
+
+
+
+
+const a1 = document.querySelector('#a1');
+const a2 = document.querySelector('#a2');
+const a3 = document.querySelector('#a3');
+const a4 = document.querySelector('#a4');
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset >= 0 && window.pageYOffset < 1000) {
+    a1.style.background = 'black';
+    a1.style.transition = '2s';
+    a1.innerHTML = 'Home';
+    a1.classList.add("bp");
+  } else {
+    a1.style.background = '';
+    a1.style.transition = '2s';
+    a1.innerHTML = '';
+  }
+
+  if (window.pageYOffset >= 1000 && window.pageYOffset < 1500) {
+    a2.style.background = 'black';
+    a2.style.transition = '2s';
+    a2.innerHTML = 'conter';
+    a2.classList.add("bp");
+  } else {
+    a2.style.background = '';
+    a2.style.transition = '2s';
+    a2.innerHTML = '';
+  }
+
+  if (window.pageYOffset >= 1500 && window.pageYOffset < 2000) {
+    a3.style.background = 'black';
+    a3.style.transition = '2s';
+    a3.innerHTML = 'Copyright';
+    a3.classList.add("bp");
+  } else {
+    a3.style.background = '';
+    a3.style.transition = '2s';
+    a3.innerHTML = '';
+  }
+
+  if (window.pageYOffset >= 2000) {
+    a4.style.background = 'black';
+    a4.style.transition = '2s';
+    a4.innerHTML = 'secdtion1';
+    a4.classList.add("bp");
+  } else {
+    a4.style.background = '';
+    a4.style.transition = '2s';
+    a4.innerHTML = '';
+  }
 });

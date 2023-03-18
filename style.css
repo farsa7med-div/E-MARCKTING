@@ -5,7 +5,6 @@
 }
 
 body {
-  height: 4000px;
   background-color: #f1f1f1 !important;
 }
 
@@ -27,8 +26,9 @@ body {
   background-color: #343a40;
   background-color: transparent !important;
   color: #343a40 !important;
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: 100%;
   z-index: 3;
   transition: 0.3s all linear;
 }
@@ -82,18 +82,6 @@ body {
   padding: 0 15px;
 }
 
-h1 {
-  font-size: 48px;
-  font-weight: bold;
-  margin-bottom: 30px;
-  line-height: 1.2;
-}
-
-p {
-  font-size: 24px;
-  margin-bottom: 30px;
-  line-height: 1.5;
-}
 
 .col-md-6 {
   display: flex;
@@ -132,7 +120,7 @@ p {
   background-image: url(img/img--waved__gradient.svg);
   background-repeat: no-repeat;
   background-position-x: 100%;
-  transform: translateY(-69px);
+  transform: translateY(-10px);
   height: 100vh;
   overflow: hidden;
 }
@@ -149,7 +137,7 @@ p {
 /* ! end imprtent back */
 @media only screen and (max-width: 600px) {
   #main-section {
-    height: calc(100vh + -447px);
+    height: calc(100vh + 123px);
     /* افترضنا أن ارتفاع الصورة 300px */
   }
 }
@@ -157,7 +145,9 @@ p {
 /* ! sections sryle all */
 #your-section {
   background-color: #f1f1f1;
-  padding: 30px 0;
+  padding: 0 0;
+  height: 450px !important;
+  
 }
 
 .c {
@@ -168,6 +158,7 @@ p {
 .fg {
   padding: 0px 0 !important;
   transform: translateY(-106px);
+  height: 796px;
 }
 
 #your-section h2 {
@@ -205,7 +196,7 @@ p {
 #your-section img {
   width: 100%;
   height: auto;
-  margin-top: 30px;
+  margin-top: 0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -217,13 +208,12 @@ p {
 }
 
 /* ! end sections sryle all */
-/* slid */
-/* تحديد حجم الشرائح */
+/* Set height of carousel items */
 .carousel-item {
   height: 400px;
 }
 
-/* تخفيف حجم النص في الشرائح */
+/* Decrease font size in carousel captions */
 .carousel-caption h5 {
   font-size: 2rem;
 }
@@ -232,33 +222,48 @@ p {
   font-size: 1.5rem;
 }
 
-/* تغيير لون الأزرار السابقة والتالية */
+/* Remove default arrow icons */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-image: none;
 }
 
-.carousel-control-prev,
+/* Add custom arrow icons */
+.carousel-control-prev::before,
+.carousel-control-next::before {
+  display: inline-block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  transform: rotate(-45deg);
+}
+
+/* Adjust position of arrows */
 .carousel-control-next {
-  width: 5%;
+  right: 0;
+  margin-left: 0;
+  transform: rotate(180deg);
 }
 
-.carousel-control-prev {
-  left: -1%;
+.carousel-control-prev{
+  right: 0;
+  margin-right: 0;
 }
 
-.carousel-control-next {
-  right: -1%;
+/* Increase size of arrow icons on hover */
+.carousel-control-prev:hover::before,
+.carousel-control-next:hover::before {
+  width: 25px;
+  height: 25px;
+  border-top-width: 3px;
+  border-left-width: 3px;
 }
 
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-  background-color: rgba(0, 0, 0, .5);
-}
-
-.carousel-control-prev span,
-.carousel-control-next span {
-  font-size: 3rem;
+/* Hide overflow to prevent carousel from going off-screen */
+#myCarousel {
+  overflow-x: hidden;
 }
 
 /* end slid */
@@ -349,6 +354,7 @@ svg {
   /* IE 10+ */
   -webkit-overflow-scrolling: touch;
   margin: 0 -20px;
+  width: 100%;
 }
 
 .hs__header {
@@ -512,3 +518,175 @@ ul {
   filter: brightness(0%); /* تجعل الأسهم باللون الأسود */
 }
 /* ! end sled sctio */
+/* body {
+  margin: 0;
+  padding: 0;
+  background: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */
+/*
+    Auther: Abdelrhman Said
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+*:focus,
+*:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.wrapper {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: self-end;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #ffffff;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: #1877F2;
+  color: #ffffff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: #1DA1F2;
+  color: #ffffff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #E4405F;
+  color: #ffffff;
+}
+
+.wrapper .github:hover,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip::before {
+  background: #333333;
+  color: #ffffff;
+}
+
+.wrapper .youtube:hover,
+.wrapper .youtube:hover .tooltip,
+.wrapper .youtube:hover .tooltip::before {
+  background: #CD201F;
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar{
+    background: linear-gradient(90deg, #f84fcc, #4140b0);
+  }
+  .carousel-inner {
+    height: 40vh;
+  }
+  #your-section {
+    height: 872px !important;
+  }
+  .card-body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+}
+
+
+
+
+.cv {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  width: 70px;
+  
+}
+
+.cv  a {
+  color: #f1f1f1;
+  text-decoration: none;
+  transition: 1s all;
+  border-radius: 0px 37px 0px 0px;
+  width: 137px;
+  background-color: #111;
+  text-align: center;
+  
+}
+.bp{
+  background: linear-gradient(90deg, #4140b0, #f84fcc) !important;
+}
+footer{
+  background-image: url(img/svg\ \(1\).png);
+  background-size: cover;
+  transform: translateY(45px);
+}
+.gn{
+  height: -webkit-fill-available;
+}
